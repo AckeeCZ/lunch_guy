@@ -11,6 +11,7 @@ use GuzzleHttp\Client;
 use Net\TomasKadlec\LunchGuy\BaseBundle\Service\ApplicationInterface;
 use Net\TomasKadlec\LunchGuy\BaseBundle\Service\OutputInterface;
 use Net\TomasKadlec\LunchGuy\BaseBundle\Service\ParserInterface;
+use Symfony\Component\Config\Definition\Exception\Exception;
 
 /**
  * Class Application
@@ -114,14 +115,20 @@ class Application implements ApplicationInterface
      */
     public function retrieve($restaurantId) {
         $configuration = $this->configRestaurant($restaurantId);
-        $client = new Client();
-        $response = $client->request('GET', $configuration['uri']);
-        if (empty($response) || $response->getStatusCode() != 200) {
-            // TODO log!
-            // TODO exception?
+        try {
+            $client = new Client();
+            $response = $client->request('GET', $configuration['uri']);
+            if (empty($response) || $response->getStatusCode() != 200) {
+                // TODO log!
+                // TODO exception?
+
+                return [];
+            }
+            return $this->parser->parse($configuration['parser'], $response->getBody()->getContents());
+        } catch (\Exception $e) {
+            // TODO log exception
             return [];
         }
-        return $this->parser->parse($configuration['parser'], $response->getBody()->getContents());
     }
 
     /** @inheritdoc */

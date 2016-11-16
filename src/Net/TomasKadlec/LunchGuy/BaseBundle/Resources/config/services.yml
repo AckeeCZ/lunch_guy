@@ -29,6 +29,21 @@ services:
     tags:
       - { name: net_tomas_kadlec_lunch_guy_base.service.parser }
 
+  net_tomas_kadlec_lunch_guy_base.service_parser.gate:
+    class: Net\TomasKadlec\LunchGuy\BaseBundle\Service\Parser\Gate
+    tags:
+      - { name: net_tomas_kadlec_lunch_guy_base.service.parser }
+
+  net_tomas_kadlec_lunch_guy_base.service_parser.rialto:
+   class: Net\TomasKadlec\LunchGuy\BaseBundle\Service\Parser\Rialto
+   tags:
+      - { name: net_tomas_kadlec_lunch_guy_base.service.parser }
+ 
+  net_tomas_kadlec_lunch_guy_base.service_parser.lokal:
+   class: Net\TomasKadlec\LunchGuy\BaseBundle\Service\Parser\Lokal
+   tags:
+      - { name: net_tomas_kadlec_lunch_guy_base.service.parser }
+
   net_tomas_kadlec_lunch_guy_base.service_parser.uprofesora:
     class: Net\TomasKadlec\LunchGuy\BaseBundle\Service\Parser\UProfesora
     tags:

@@ -115,7 +115,7 @@ class Builder
             ]);
         $menu
             ->addChild('Slack', [
-                'uri' => 'https://ictfit.slack.com/messages/obed/',
+                'uri' => 'https://ackee.slack.com/messages/obedar/',
                 'attributes' => [
                     'icon' => 'fa-slack',
                     'no_label' => true,

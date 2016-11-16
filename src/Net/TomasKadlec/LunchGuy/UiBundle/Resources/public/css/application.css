@@ -33,8 +33,8 @@ body > footer {
 
 body > nav.breadcrumbs {
     margin: 0;
-    color: #D4D4D4;
-    background: #2E3234;
+    color: #fff;
+    background: #0000ff;
 }
 
 body > nav.breadcrumbs > ul {
@@ -67,7 +67,9 @@ body > nav.breadcrumbs > ul > li:not(:first-child)::before {
 
 body > header {
     color: #FFFFFF;
-    background-color: #2B74A7;
+    background: #000000 url(../../../images/ackee_logo_new.png) no-repeat;
+    background-position: 95% 50%;
+    background-size: 120px;
 }
 
 body > header > h1 {
@@ -79,8 +81,8 @@ body > header > h1 {
 /*** FOOTER***/
 
 body > footer {
-    color: #D4D4D4;
-    background: #2E3234;
+    color: #FFFFFF;
+    background-color: #000000;
 }
 
 body > footer > div.container > nav {

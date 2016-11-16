@@ -1,17 +1,13 @@
-FROM php:7-cli
-MAINTAINER Tomáš Kukrál <kukratom@fit.cvut.cz>
+FROM ackee/composer-apache-base:php7-apache
+MAINTAINER Marek Bartík <marek.bartik@ackee.cz>
 
-ENV destdir /usr/src/app
-
-RUN apt-get -y update && \
-  apt-get -y install git && \
-  apt-get -y clean
-
-COPY . $destdir
+ENV destdir /var/www/
 WORKDIR $destdir
+ENV runuser www-data
 
-RUN curl -sS https://getcomposer.org/installer | php
-RUN php composer.phar --no-interaction install
-
-EXPOSE 80
-CMD php bin/console server:run 0.0.0.0:80
+# copy and install app
+COPY . $destdir
+RUN composer --no-interaction install && \
+    rm -rf $destdir/html && \
+    ln -s $destdir/web $destdir/html && \
+    chown -R $runuser:$runuser $destdir
