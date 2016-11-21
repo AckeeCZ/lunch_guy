@@ -1,0 +1,23 @@
+{
+  "name": "snackee",
+  "scripts": {
+  },
+  "env": {
+    "SYMFONY_ENV": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/php"
+    }
+  ]
+}
