@@ -44,10 +44,10 @@ class Builder
      */
     public function getMain()
     {
-        $menu = $this->factory->createItem('Obědář', [
+        $menu = $this->factory->createItem('snackee', [
                 'route' => 'net_tomaskadlec_lunchguy_ui_default_index',
                 'attributes' => [
-                    'title' => 'Kam na oběd?',
+                    'title' => 'Where to eat today?',
                 ],
             ]);
 
@@ -107,7 +107,7 @@ class Builder
         $menu = $this->factory->createItem('external');
         $menu
             ->addChild('GitHub', [
-                'uri' => 'https://github.com/tomaskadlec/lunch_guy',
+                'uri' => 'https://github.com/AckeeCZ/snackee',
                 'attributes' => [
                     'icon' => 'fa-github',
                     'no_label' => true,
